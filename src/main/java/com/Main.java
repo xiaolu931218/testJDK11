@@ -95,4 +95,24 @@ public class Main {
         Stream<Integer> iterate1 = Stream.iterate(1, t -> t < 1000, t -> t * 2 + 1);
         iterate1.forEach(System.out::println);
     }
+
+    @Test
+    public void testString() {
+        String str = "   \r\n\t";
+        //true 11
+        System.out.println("   \r\n\t".isBlank());
+        //false 1.6
+        System.out.println("   \r\n\t".isEmpty());
+        /*
+wo de
+     bbb
+         */
+        System.out.println("  wo de \r\n\t bbb".strip());
+        /*
+
+ aaa
+         */
+        System.out.println("  aaa \t \r \n aaa".trim());
+
+    }
 }
