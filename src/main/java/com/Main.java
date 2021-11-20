@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
@@ -113,6 +114,18 @@ wo de
  aaa
          */
         System.out.println("  aaa \t \r \n aaa".trim());
+
+    }
+
+    @Test
+    public void testOptional() {
+        // java.lang.NullPointerException
+//        Optional<String> op = Optional.of(null);
+        Optional<String> op = Optional.ofNullable(null);
+        // 123
+        System.out.println(op.orElse("123"));
+        // java.util.NoSuchElementException: No value present
+        System.out.println(op.orElseThrow());
 
     }
 }
