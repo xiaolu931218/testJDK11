@@ -74,12 +74,25 @@ public class Main {
 
         System.out.println("1、========");
         Stream<Integer> stream1 = Stream.of(1, 2, 3, 4, 5, 6);
-        // takewhile()方法接受所有值，直到谓词返回false为止
+        // takeWhile()方法接受所有值，直到谓词返回false为止
         stream1.takeWhile(x -> x % 2 != 0).forEach(System.out::print);//1
         System.out.println("\n2、========");
         Stream<Integer> stream2 = Stream.of(1, 2, 3, 4, 5, 6);
         // dropWhile()方法丢弃所有值，直到谓词返回false为止
         stream2.dropWhile(x -> x % 2 != 0).forEach(System.out::print);//23456
 
+    }
+
+    @Test
+    public void testIterate() {
+        Stream<Integer> iterate = Stream.iterate(1, t -> t * 2 + 1);
+        // 无限流会无限增长
+//        iterate.forEach(System.out::println);
+        // 限制10个
+//        iterate.limit(10).forEach(System.out::println);
+
+        // 新的限制流，限制在小于1000
+        Stream<Integer> iterate1 = Stream.iterate(1, t -> t < 1000, t -> t * 2 + 1);
+        iterate1.forEach(System.out::println);
     }
 }
