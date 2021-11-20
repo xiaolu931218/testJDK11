@@ -115,6 +115,9 @@ wo de
          */
         System.out.println("  aaa \t \r \n aaa".trim());
 
+        // 统计行数
+        System.out.println("  aaa \t \r \n bbb".lines().count());
+
     }
 
     @Test
